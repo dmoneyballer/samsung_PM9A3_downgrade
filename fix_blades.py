@@ -13,6 +13,10 @@ patterns =  [
     "\s* ([^GDC5502Q]+\/\d\%) GDC5502Q",
     "\s* ([^EDA5502Q]+\/\d\%) EDA5502Q",
     ]
+output = subprocess.Popen('mkdir -p /tmp/samsung_PM9A3_downgrade', shell=True)
+output.wait()
+output = subprocess.Popen('cp ./* /tmp/samsung_PM9A3_downgrade/', shell=True)
+output.wait()
 output = subprocess.Popen('ybcli blade status > /tmp/blades', shell=True)
 output.wait()
 with open('/tmp/blades', 'r') as rf:
